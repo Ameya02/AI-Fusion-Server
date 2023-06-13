@@ -6,11 +6,11 @@ dotenv.config();
 var cors = require("cors");
 const port = process.env.PORT;
 const http = require("http");
-const server = http.createserver(app);
+const server = http.createServer(app);
 const connectDB = require("./db");
 connectDB();
 const serverRoutes = require("./api/serverRoutes");
-server.use([
+app.use([
   cors(),
   bodyparser.json(),
   bodyparser.urlencoded({ extended: false }),
