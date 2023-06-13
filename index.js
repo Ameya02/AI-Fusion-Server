@@ -6,10 +6,11 @@ dotenv.config();
 var cors = require("cors");
 const port = process.env.PORT;
 const connectDB = require("./db");
-
+const http = require("http");
+const sever = http.createServer(app);
 connectDB();
 const serverRoutes = require("./serverRoutes");
-app.use([
+server.use([
   cors(),
   bodyparser.json(),
   bodyparser.urlencoded({ extended: false }),
@@ -18,9 +19,9 @@ app.use([
 app.get("/", (req, res) => {
   res.send("Hey this is my API running 🥳");
 });
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 app.use("/api/email", serverRoutes);
 
-module.exports = app;
+module.exports = server;
