@@ -7,7 +7,7 @@ var cors = require("cors");
 const port = process.env.PORT;
 const connectDB = require("./db");
 const http = require("http");
-const sever = http.createServer(app);
+const server = http.createServer(app);
 connectDB();
 const serverRoutes = require("./serverRoutes");
 server.use([
