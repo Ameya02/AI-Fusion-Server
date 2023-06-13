@@ -6,8 +6,6 @@ dotenv.config();
 var cors = require("cors");
 const port = process.env.PORT;
 const connectDB = require("./db");
-const http = require("http");
-const server = http.createServer(app);
 connectDB();
 const serverRoutes = require("./api/serverRoutes");
 server.use([
@@ -19,9 +17,9 @@ server.use([
 app.get("/", (req, res) => {
   res.send("Hey this is my API running 🥳");
 });
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 app.use("/api/email", serverRoutes);
 
-module.exports = server;
+module.exports = app;
