@@ -26,3 +26,5 @@ server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 app.use("/api/email", serverRoutes);
+
+module.exports = server;
