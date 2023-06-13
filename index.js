@@ -5,6 +5,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 var cors = require("cors");
 const port = process.env.PORT;
+const http = require("http");
+const server = http.createserver(app);
 const connectDB = require("./db");
 connectDB();
 const serverRoutes = require("./api/serverRoutes");
@@ -22,4 +24,4 @@ app.listen(port, () => {
 });
 app.use("/api/email", serverRoutes);
 
-module.exports = app;
+module.exports = server;
