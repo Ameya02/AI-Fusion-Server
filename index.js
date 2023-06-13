@@ -9,7 +9,7 @@ const connectDB = require("./db");
 const http = require("http");
 const server = http.createServer(app);
 connectDB();
-const serverRoutes = require("./serverRoutes");
+const serverRoutes = require("./api/serverRoutes");
 server.use([
   cors(),
   bodyparser.json(),
