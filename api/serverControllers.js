@@ -1,4 +1,4 @@
-const Email = require("../serverModel");
+const Email = require("./serverModel");
 const asyncHandler = require("express-async-handler");
 
 const registerEmail = asyncHandler(async (req, res) => {
