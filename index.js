@@ -11,7 +11,14 @@ const connectDB = require("./db");
 connectDB();
 const serverRoutes = require("./api/serverRoutes");
 app.use([
-  cors(),
+  cors(
+    {
+    origin:[""],
+    methods:["POST","GET"],
+    credentials:true
+    }
+      
+  ),
   bodyparser.json(),
   bodyparser.urlencoded({ extended: false }),
 ]);
