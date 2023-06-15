@@ -7,18 +7,15 @@ var cors = require("cors");
 const port = process.env.PORT;
 const http = require("http");
 const server = http.createServer(app);
-const connectDB = require("./db");
+const connectDB = require("../db");
 connectDB();
-const serverRoutes = require("./api/serverRoutes");
+const serverRoutes = require("../routes/serverRoutes");
 app.use([
-  cors(
-    {
-    origin:[""],
-    methods:["POST","GET"],
-    credentials:true
-    }
-      
-  ),
+  cors({
+    origin: [""],
+    methods: ["POST", "GET"],
+    credentials: true,
+  }),
   bodyparser.json(),
   bodyparser.urlencoded({ extended: false }),
 ]);
